@@ -1,0 +1,11 @@
+{
+  "name": "BREIN Klok Atlas",
+  "nodes": [
+    {"id":"02ebfc45-ceba-4d52-bf0a-b11bac0301f4","name":"Elke 10 minuten","type":"n8n-nodes-base.scheduleTrigger","typeVersion":1.4,"position":[0,0],"parameters":{"rule":{"interval":[{"field":"minutes","minutesInterval":10}]}}},
+    {"id":"cda4be53-4020-4ab1-88dc-3182efa0b541","name":"Embed pending notities","type":"n8n-nodes-base.httpRequest","typeVersion":4.5,"position":[224,0],"parameters":{"method":"POST","url":"https://ogqbciiteqogopnjltnc.supabase.co/functions/v1/atlas-balie/embed-pending","authentication":"none","sendHeaders":true,"headerParameters":{"parameters":[{"name":"Authorization","value":"Bearer __ANON_KEY__"},{"name":"x-atlas-key","value":"__ATLAS_SLEUTEL__"}]},"sendBody":true,"contentType":"json","specifyBody":"json","jsonBody":"{\"limiet\": 3}"}}
+  ],
+  "connections": {
+    "Elke 10 minuten": {"main": [[{"node": "Embed pending notities", "type": "main", "index": 0}]]}
+  },
+  "settings": {"executionOrder": "v1"}
+}
